@@ -3,62 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Quieres ser mi San Valentín?</title>
+    <title>Para mi amor 💖</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #ffdde1;
-        }
-        .container {
-            margin-top: 100px;
+            overflow: hidden;
+            position: relative;
         }
         h1 {
             font-size: 2.5em;
             color: #d63384;
+            margin-top: 50px;
         }
-        .buttons {
-            margin-top: 20px;
+        p {
+            font-size: 1.5em;
+            color: #555;
         }
         button {
             font-size: 1.5em;
             padding: 10px 20px;
-            margin: 10px;
+            margin-top: 20px;
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            transition: 0.3s;
-        }
-        #yes {
             background-color: #ff4081;
             color: white;
+            transition: 0.3s;
         }
-        #yes:hover {
+        button:hover {
             background-color: #e91e63;
         }
-        #no {
-            background-color: #ff5252;
-            color: white;
+        .heart {
             position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: float 4s infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-200px); opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>¿Quieres ser mi San Valentín? 💖</h1>
-        <div class="buttons">   
-            <button id="yes" onclick="alert('¡Sabía que dirías que sí! 💕')">Sí</button>
-            <button id="no" onmouseover="moveButton()">No</button>
-        </div>
-    </div>
-
+    <h1>Para la mas caprichosa💕</h1>
+    <p>Sos lo mejor que me ha pasado y solo quiero recordarte cuánto te amo. 💖</p>
+    <button onclick="mostrarMensaje()">Haz clic aquí</button>
+    <button class="boton" onclick="mostrarMensaje1()">Haz clic aquí otra vez</button>
+    
     <script>
-        function moveButton() {
-            let x = Math.random() * (window.innerWidth - 100);
-            let y = Math.random() * (window.innerHeight - 50);
-            document.getElementById('no').style.left = x + 'px';
-            document.getElementById('no').style.top = y + 'px';
+        function mostrarMensaje() {
+            alert('Me debes un rapidin en 4! ❤️');
         }
+        
+        function crearCorazon() {
+            let heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.classList.add('heart');
+            document.body.appendChild(heart);
+            
+            let x = Math.random() * window.innerWidth;
+            let y = window.innerHeight;
+            heart.style.left = x + 'px';
+            heart.style.top = y + 'px';
+            heart.style.fontSize = Math.random() * 30 + 10 + 'px';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            
+            setTimeout(() => heart.remove(), 4000);
+        }
+        
+        setInterval(crearCorazon, 500);
+    </script>
+     <script>
+        function mostrarMensaje1() {
+            alert('La que lee es gay');
+        }
+        tTimeout(() => heart.remove(), 4000);
+        
+        
+        setInterval(crearCorazon, 500);
     </script>
 </body>
 </html>
